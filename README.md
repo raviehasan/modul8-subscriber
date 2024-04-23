@@ -7,3 +7,7 @@ Simulation slow subscriber screenshot:
 ![alt text](images/image-0.png)
 ![alt text](images/image-1.png)
 Simulasi slow subscriber dapat dilihat pada gambar di atas. Jika dilihat, terdapat 15 queued messages. Hal ini terjadi karena saya mengirimkan "cargo run" sebanyak 4 kali. Dengan kata lain, program publisher saya jalankan sebanyak 4 kali. Sebagaimana telah dijelaskan sebelumnya, program publisher in one run akan mengirimkan 5 data ke message broker. Kemudian, karena yang queued ada 3 program publisher, sehingga queued messagesnya menjadi 3 * 5 = 15.
+
+Hal yang dapat diimprove dari program subscriber:
+- Kurangi penggunaan method unwrap karena dapat menyebabkan panic
+- Mengimplementasikan method get_handler_action untuk menghindari panic
