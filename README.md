@@ -3,6 +3,14 @@
 2. What it means? guest:guest@localhost:5672, what is the first quest, and what is the second guest, and what is localhost:5672 is for?
 Jelas bahwa guest:guest adalah format username:password. Dengan demikian, first guest adalah username. Di sisi lain, second guest adalah password. Kemudian, @localhost:5672 adalah format @hostname:port_number dari broker AMQP. Dengan demikian,  localhost adalah hostname dari mesin tempat broker berjalan. Sedangkan 5672 adalah port number (pada AMQP, default portnya adalah 5672) di mana broker AMQP akan keep track connecetions. Maka dari itu, guest:guest@localhost:5672 berarti connections akan berjalan di localhost pada port number 5672 dengan username "guest" dan password "guest".
 
+Sending and processing event
+![alt text](images/image-2.png)
+![alt text](images/image-3.png)
+![alt text](images/image-4.png)
+![alt text](images/image-5.png)
+![alt text](images/image-6.png)
+Berdasarkan screenshots di atas, dimulai dari menjalankan program subscriber. Kemudian, menjalankan program publisher. Setelah itu memonitornya di RabbitMQ. Kemudian juga memerika terminal pada program subscriber. Pada terminal program subscriber, dapat dilihat bahwa berhasil menerima 5 message sesuai yang dikirimkan pada program publisher. Dapat dilihat juga bahwa queued messagesnya 0, hal ini karena program ayng dijalankan hanya 1 dan cukup kecil. Kemudian, terdapat spike yang menandakan request sedang dieksekusi.
+
 Simulation slow subscriber screenshot:
 ![alt text](images/image-0.png)
 ![alt text](images/image-1.png)
